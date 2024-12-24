@@ -16,14 +16,14 @@ jobs:
     - name: Setup SSH
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        echo "${{ secrets.my_key }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+        ssh-keyscan -H ${{168.119.254.41}} >> ~/.ssh/known_hosts
 
     - name: Deploy code
       run: |
-        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-        cd /var/www/your_repo_name || exit
+        ssh ${{root}}@${{168.119.254.41} << 'EOF'
+        cd /raghad/project || exit
         git pull origin main
         npm install
         pm2 restart server.js || pm2 start server.js
