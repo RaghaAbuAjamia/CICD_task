@@ -16,7 +16,44 @@ jobs:
     - name: Setup SSH
       run: |
        mkdir -p ~/.ssh
-       echo "${{ secrets.MY_KEY }}" > ~/.ssh/id_rsa  # Use your existing private key here
+       echo "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
+eAECAw==
+" > ~/.ssh/id_rsa  # Use your existing private key here
        chmod 600 ~/.ssh/id_rsa
        ssh-keyscan -H 168.119.254.41 >> ~/.ssh/known_hosts  # Replace with your server's IP address
 
