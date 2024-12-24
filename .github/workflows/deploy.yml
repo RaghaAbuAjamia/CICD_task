@@ -59,7 +59,7 @@ eAECAw==
 
     - name: Deploy code
       run: |
-        ssh root@168.119.254.41 << 'EOF'  # Replace with your SSH username and IP address
+        ssh root@168.119.254.41<< 'EOF'  # Replace with your SSH username and IP address
         cd /raghad/project || exit
         git pull origin main
         npm install
