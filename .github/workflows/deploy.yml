@@ -28,7 +28,8 @@ jobs:
       - name: Deploy code
         run: |
           ssh -T -o StrictHostKeyChecking=no root@168.119.254.41<< 'EOF'
-          cd /raghad/project || exit
+          cd raghad
+          cd project || exit
           git pull origin main
           npm install
           EOF
