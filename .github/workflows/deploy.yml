@@ -13,16 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup SSH
+      - name: Setup SCP
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.MY_IP }}
           username: root
           key: ${{ secrets.MY_KEY }}
-    
+          source: './' # Files to transfer
+          target: '/raghad/project' # Target directory on the server
+
       - name: Deploy code
         run: |
-          ssh root@${{ secrets.MY_IP }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.MY_IP }} << 'EOF'
           cd /raghad/project || exit
           git pull origin main
           npm install
