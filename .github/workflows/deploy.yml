@@ -18,12 +18,7 @@ jobs:
         with:
           node-version: '20.18.1'
 
-          
-      - name: Setup 
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-         ssh-private-key: ${{ secrets.MY_KEY }}
-        
+      
 
       - name: Deploy code
         run: |
