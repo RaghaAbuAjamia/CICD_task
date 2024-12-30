@@ -16,19 +16,9 @@ jobs:
       - name: Set up server.js
         uses: actions/setup-node@v3
         with:
-          node-version: '12.22.9'
+          node-version: '20.18.1'
 
-      - name: Install dependencies and test
-        run: |
-          npm install
-          
-      - name: Setup 
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          host: ${{ secrets.MY_IP }}
-          username: root
-          key: ${{ secrets.MY_KEY }}
-        
+      
 
       - name: Deploy code
         run: |
