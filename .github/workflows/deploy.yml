@@ -25,13 +25,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.MY_KEY }}
 
-
-      
-
       - name: Deploy code
         run: |
           ssh -o StrictHostKeyChecking=no root@$168.119.254.41<< 'EOF'
           cd /raghad/project || exit
           git pull origin main
- 
+          npm install
           EOF
