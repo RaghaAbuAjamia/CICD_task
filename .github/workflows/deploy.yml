@@ -16,7 +16,7 @@ jobs:
       - name: Set up server.js
         uses: actions/setup-node@v3
         with:
-          node-version: '12.22.9'
+          node-version: '20.18.1'
 
       - name: Install dependencies and test
         run: |
